@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUserAgeTv = (TextView) findViewById(R.id.user_age_tv);
+        DaggerUserComponent.builder().build().injectTo(this);
         mUserAgeTv.setText("" + mUser.getAge());
     }
 }
