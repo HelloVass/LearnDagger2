@@ -6,3 +6,5 @@
 .DS_Store
 /captures
 .externalNativeBuild
+libs/
+src/main/res/drawable/

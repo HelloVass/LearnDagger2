@@ -1,1 +1,9 @@
-/build
+/build/generated/res
+/build/generated/source/aidl
+/build/generated/source/apt/androidTest
+/build/generated/source/apt/test
+/build/generated/source/r
+/build/generated/source/rs
+/build/intermediates
+/build/outputs
+/build/tmp
