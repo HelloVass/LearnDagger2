@@ -10,8 +10,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView mUserAgeTv;
-    @Inject User mUser;
-
+//    @Inject User mUser;
+    @Inject ClassRoom mClassRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mUserAgeTv = (TextView) findViewById(R.id.user_age_tv);
         DaggerUserComponent.builder().build().injectTo(this);
-        mUserAgeTv.setText("" + mUser.getAge());
+        mUserAgeTv.setText("" + mClassRoom.getUser().getAge());
     }
 }

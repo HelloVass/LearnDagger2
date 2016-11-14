@@ -2,12 +2,15 @@ package com.dove.flyer.fuckthirdpart;
 
 import dagger.MembersInjector;
 import javax.annotation.Generated;
+import javax.inject.Provider;
 
 @Generated(
   value = "dagger.internal.codegen.ComponentProcessor",
   comments = "https://google.github.io/dagger"
 )
 public final class DaggerUserComponent implements UserComponent {
+  private Provider<ClassRoom> classRoomProvider;
+
   private MembersInjector<MainActivity> mainActivityMembersInjector;
 
   private DaggerUserComponent(Builder builder) {
@@ -26,7 +29,9 @@ public final class DaggerUserComponent implements UserComponent {
   @SuppressWarnings("unchecked")
   private void initialize(final Builder builder) {
 
-    this.mainActivityMembersInjector = MainActivity_MembersInjector.create(User_Factory.create());
+    this.classRoomProvider = ClassRoom_Factory.create(User_Factory.create());
+
+    this.mainActivityMembersInjector = MainActivity_MembersInjector.create(classRoomProvider);
   }
 
   @Override
