@@ -1,6 +1,7 @@
 package com.dove.flyer.fuckthirdpart;
 
 import dagger.MembersInjector;
+import dagger.internal.Preconditions;
 import javax.annotation.Generated;
 import javax.inject.Provider;
 
@@ -10,6 +11,8 @@ import javax.inject.Provider;
 )
 public final class DaggerUserComponent implements UserComponent {
   private Provider<ClassRoom> classRoomProvider;
+
+  private Provider<Subject> provideSubjectProvider;
 
   private MembersInjector<MainActivity> mainActivityMembersInjector;
 
@@ -31,7 +34,10 @@ public final class DaggerUserComponent implements UserComponent {
 
     this.classRoomProvider = ClassRoom_Factory.create(User_Factory.create());
 
-    this.mainActivityMembersInjector = MainActivity_MembersInjector.create(classRoomProvider);
+    this.provideSubjectProvider =
+        SubjectModule_ProvideSubjectFactory.create(builder.subjectModule, classRoomProvider);
+
+    this.mainActivityMembersInjector = MainActivity_MembersInjector.create(provideSubjectProvider);
   }
 
   @Override
@@ -40,10 +46,20 @@ public final class DaggerUserComponent implements UserComponent {
   }
 
   public static final class Builder {
+    private SubjectModule subjectModule;
+
     private Builder() {}
 
     public UserComponent build() {
+      if (subjectModule == null) {
+        this.subjectModule = new SubjectModule();
+      }
       return new DaggerUserComponent(this);
+    }
+
+    public Builder subjectModule(SubjectModule subjectModule) {
+      this.subjectModule = Preconditions.checkNotNull(subjectModule);
+      return this;
     }
   }
 }

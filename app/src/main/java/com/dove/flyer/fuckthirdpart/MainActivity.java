@@ -11,14 +11,21 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mUserAgeTv;
 //    @Inject User mUser;
-    @Inject ClassRoom mClassRoom;
+//    @Inject ClassRoom mClassRoom;
+    @Inject Subject mSubject;
+
+    SubjectModule mSubjectModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUserAgeTv = (TextView) findViewById(R.id.user_age_tv);
-        DaggerUserComponent.builder().build().injectTo(this);
-        mUserAgeTv.setText("" + mClassRoom.getUser().getAge());
+        mSubjectModule = new SubjectModule();
+
+        DaggerUserComponent.builder()
+                .subjectModule(mSubjectModule)
+                .build().injectTo(this);
+        mUserAgeTv.setText("" + mSubject.mClassRoom.mUser.age);
     }
 }
