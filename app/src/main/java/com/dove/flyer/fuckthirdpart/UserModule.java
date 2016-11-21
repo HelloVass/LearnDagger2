@@ -1,5 +1,7 @@
 package com.dove.flyer.fuckthirdpart;
 
+import com.dove.flyer.fuckthirdpart.annotation.UserScope;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -14,6 +16,7 @@ public class UserModule {
 
     }
 
+//    @UserScope
     @Provides
     User provideUser(){
         return new User();

@@ -12,7 +12,7 @@ import javax.inject.Inject;
 public class ClassARoomActivity extends AppCompatActivity {
 
     TextView mUserNameTv;
-    Button mLogOutBtn;
+//    Button mLogOutBtn;
     Button mToBBtn;
     @Inject User mUser;
 
@@ -21,7 +21,7 @@ public class ClassARoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_aroom);
         mUserNameTv = (TextView) findViewById(R.id.user_name_tv);
-        mLogOutBtn = (Button) findViewById(R.id.logout_btn);
+//        mLogOutBtn = (Button) findViewById(R.id.logout_btn);
         mToBBtn = (Button) findViewById(R.id.to_b_btn);
         App.getUserComponent().injectTo(this);
 
