@@ -10,11 +10,11 @@ import javax.inject.Provider;
   comments = "https://google.github.io/dagger"
 )
 public final class DaggerUserComponent implements UserComponent {
-  private Provider<ClassRoom> classRoomProvider;
+  private Provider<User> provideUserProvider;
 
-  private Provider<Subject> provideSubjectProvider;
+  private MembersInjector<ClassARoomActivity> classARoomActivityMembersInjector;
 
-  private MembersInjector<MainActivity> mainActivityMembersInjector;
+  private MembersInjector<ClassBRoomActivity> classBRoomActivityMembersInjector;
 
   private DaggerUserComponent(Builder builder) {
     assert builder != null;
@@ -32,33 +32,39 @@ public final class DaggerUserComponent implements UserComponent {
   @SuppressWarnings("unchecked")
   private void initialize(final Builder builder) {
 
-    this.classRoomProvider = ClassRoom_Factory.create(User_Factory.create());
+    this.provideUserProvider = UserModule_ProvideUserFactory.create(builder.userModule);
 
-    this.provideSubjectProvider =
-        SubjectModule_ProvideSubjectFactory.create(builder.subjectModule, classRoomProvider);
+    this.classARoomActivityMembersInjector =
+        ClassARoomActivity_MembersInjector.create(provideUserProvider);
 
-    this.mainActivityMembersInjector = MainActivity_MembersInjector.create(provideSubjectProvider);
+    this.classBRoomActivityMembersInjector =
+        ClassBRoomActivity_MembersInjector.create(provideUserProvider);
   }
 
   @Override
-  public void injectTo(MainActivity mainActivity) {
-    mainActivityMembersInjector.injectMembers(mainActivity);
+  public void injectTo(ClassARoomActivity classARoomActivity) {
+    classARoomActivityMembersInjector.injectMembers(classARoomActivity);
+  }
+
+  @Override
+  public void injectTo(ClassBRoomActivity classBRoomActivity) {
+    classBRoomActivityMembersInjector.injectMembers(classBRoomActivity);
   }
 
   public static final class Builder {
-    private SubjectModule subjectModule;
+    private UserModule userModule;
 
     private Builder() {}
 
     public UserComponent build() {
-      if (subjectModule == null) {
-        this.subjectModule = new SubjectModule();
+      if (userModule == null) {
+        this.userModule = new UserModule();
       }
       return new DaggerUserComponent(this);
     }
 
-    public Builder subjectModule(SubjectModule subjectModule) {
-      this.subjectModule = Preconditions.checkNotNull(subjectModule);
+    public Builder userModule(UserModule userModule) {
+      this.userModule = Preconditions.checkNotNull(userModule);
       return this;
     }
   }

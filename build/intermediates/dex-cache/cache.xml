@@ -111,6 +111,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/flyer/Documents/tools/android-sdk-macosx/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha8/constraint-layout-solver-1.0.0-alpha8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="80c371a4fd5e1b77f0e3a25b171356878543ffdd">
+        <dex dex="/Users/flyer/Documents/Code/Test/Android/FuckThirdPart/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.0-alpha8_fa0db0b260231de47406efe6420c95ec64e36988.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/flyer/Documents/Code/Test/Android/FuckThirdPart/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -144,6 +153,15 @@
         revision="24.0.1"
         sha1="f60e4926b5f05a62ff73e73b6eb3a856cdc74ddb">
         <dex dex="/Users/flyer/Documents/Code/Test/Android/FuckThirdPart/app/build/intermediates/pre-dexed/debug/dagger-2.7_0780bd3a80b49990788b3abe2134ec86575a0cf7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/flyer/Documents/Code/Test/Android/FuckThirdPart/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha8/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0e753ea8d0a2dea270da7d96a7d6e9d2e9c10f94">
+        <dex dex="/Users/flyer/Documents/Code/Test/Android/FuckThirdPart/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.0-alpha8_24b4a58a8fdeeb74fe765a8d75afde6debbe7516.jar" />
     </item>
     <item
         is-multidex="false"
