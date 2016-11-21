@@ -1,6 +1,7 @@
 package com.dove.flyer.fuckthirdpart;
 
 import dagger.MembersInjector;
+import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
 import javax.annotation.Generated;
 import javax.inject.Provider;
@@ -32,7 +33,8 @@ public final class DaggerUserComponent implements UserComponent {
   @SuppressWarnings("unchecked")
   private void initialize(final Builder builder) {
 
-    this.provideUserProvider = UserModule_ProvideUserFactory.create(builder.userModule);
+    this.provideUserProvider =
+        DoubleCheck.provider(UserModule_ProvideUserFactory.create(builder.userModule));
 
     this.classARoomActivityMembersInjector =
         ClassARoomActivity_MembersInjector.create(provideUserProvider);

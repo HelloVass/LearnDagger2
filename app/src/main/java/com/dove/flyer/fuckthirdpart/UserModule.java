@@ -16,7 +16,7 @@ public class UserModule {
 
     }
 
-//    @UserScope
+    @UserScope
     @Provides
     User provideUser(){
         return new User();

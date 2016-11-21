@@ -16,9 +16,9 @@
         android:id="@+id/to_b_btn"
         android:layout_width="wrap_content"
         android:layout_height="48dp" />
-    <!--<Button-->
-        <!--android:text="退出"-->
-        <!--android:id="@+id/logout_btn"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="48dp" />-->
+    <Button
+        android:text="清楚 component 跳转 B"
+        android:id="@+id/clean_to_b_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp" />
 </LinearLayout>

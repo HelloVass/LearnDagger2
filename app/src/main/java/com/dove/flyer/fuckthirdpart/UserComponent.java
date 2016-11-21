@@ -7,7 +7,7 @@ import dagger.Component;
 /**
  * Created by flyer on 2016/11/11.
  */
-//@UserScope
+@UserScope
 @Component(modules = {UserModule.class})
 public interface UserComponent {
     void injectTo(ClassARoomActivity classARoomActivity);
